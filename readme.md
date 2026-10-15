@@ -1,4 +1,3 @@
-```markdown
 # Hybrid GWO–GA for Energy-Efficient Resource Allocation in NOMA Fog Computing IoT
 
 Reproduction package for the paper:
@@ -115,7 +114,7 @@ images/media/
   # image14 larger scale
 
 colab_results_bundle.zip   # ready-to-share archive (summary, CSVs, figures)
-```
+
 
 ## Reproducibility notes
 
