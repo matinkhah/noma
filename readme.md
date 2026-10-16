@@ -23,24 +23,24 @@ Python ≥ 3.8 recommended. SciPy is optional but required for Wilcoxon / Holm t
 
 ```bash
 # Smoke test (~2 min)
-python run_experiments.py --quick --workers 2
+python run_experiments_v2.py --quick --workers 2
 
 # Reviewer-oriented run (E1, E5, E9–E12 + timing) — default
-python run_experiments.py --only new --workers 2
+python run_experiments_v2.py --only new --workers 2
 
 # Full suite including E2–E8
-python run_experiments.py --only all --workers 4
+python run_experiments_v2.py --only all --workers 4
 
 # Specific experiments
-python run_experiments.py --only E1,E9,E11 --seeds 30
+python run_experiments_v2.py --only E1,E9,E11 --seeds 30
 ```
 
 ### Google Colab
 
 ```python
 !pip -q install numpy scipy matplotlib
-# upload run_experiments.py, then:
-!python run_experiments.py --only new --workers 2
+# upload run_experiments_v2.py, then:
+!python run_experiments_v2.py --only new --workers 2
 ```
 
 Runtime on a free Colab is roughly 1–2 hours for `--only new`. The run is **resumable**: if the runtime disconnects, re-execute the same command; finished experiments (saved as `results/raw_*.json`) are skipped. Download `colab_results_bundle.zip` from the file browser when finished.
