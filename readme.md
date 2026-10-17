@@ -319,3 +319,116 @@ imperfect SIC tested only at `N = 30` with GWO; no lower bound on the optimum (E
 See the *Limitations* section of the manuscript.
 
 ---
+
+
+# noma_e9_e12 Experiences
+
+[![License: MIT](https://shields.io)](https://opensource.org)
+[![Python 3.8+](https://shields.io)](https://python.org)
+
+This repository contains the complete, self-contained reference implementation and reproducibility validation suite for **"Deconstructing the Claims of Hybrid Metaheuristics in NOMA Fog Offloading: A Budget- and Capacity-Controlled Methodological Audit"** (submitted to *IEEE Access*).
+
+Rather than presenting an unconstrained "algorithm tweak," this framework introduces a rigorous, budget- and capacity-controlled benchmark environment. It maps the operational boundaries of heuristic schedulers against strict computing budgets (Q), isolates baseline algorithmic plateaus, and decouples physical multi-access gains from raw channel capacity expansion.
+
+---
+
+## 📡 Core System Architecture & Features
+
+The underlying codebase implements a single-cell uplink multiplexing model coupling discrete offloading, sub-channel assignment, transmission power control, and continous edge computing frequency slices.
+
+### 🧩 Physical & Algorithmic Extensions
+* **Baseline Framework:** Deterministic, distance-based path loss profile with localized device-centric cost boundaries.
+* **Rayleigh Block Fading ([E9]):** Models stochastic multi-path propagation under a quasi-static block-fading layout with perfect channel state information per realization.
+* **System-Wide Cost Disconnect ([E10]):** Evaluates global network footprint trajectories by capturing infrastructure-side computing energy overheads (ξ) and passive downlink result-return communication paths (ε).
+* **Algorithmic Stagnation Diagnostic ([E11]):** Isolates structural search plateaus via conditional greedy coordinate updates (`G-GWO`) and budget-decoupled decay parameter schedules (`F-GWO`).
+* **Macro-Mutation Exploration Tuning ([E12]):** Tracks global optimal coordinates through disjoint validation instances exploring exploratory step-size metrics up to \(\mu^* = 0.2\).
+
+### 📊 Audited Optimization Algorithms
+The repository contains unified continuous numerical update vectors for a broad baseline suite:
+* **Stochastic Schedulers:** Uniform Random Search (`RS`), Canonical Genetic Algorithm (`GA`), Particle Swarm Optimization (`PSO`), Differential Evolution (`DE`), and the Whale Optimization Algorithm (`WOA`).
+* **Swarm Benchmarks:** Baseline Grey Wolf Optimizer (`GWO`), Greedy GWO (`G-GWO`), and Fixed-Schedule GWO (`F-GWO`).
+* **Compound Paradigms:** Combined GWO--GA Hybrid Pipeline, along with Constructive-Seeded variations (`S-GWO`, `S-HYB`).
+* **Operational Anchors:** Fast Channel-Ordered Deterministic Constructive Rule (`CONS`), Uniform Distribution Baseline (`EQUAL`), and an All-Local Execution Floor.
+
+---
+
+## ⚙️ Installation & Prerequisites
+
+The execution engine is fully self-contained in a single script and relies strictly on core mathematical libraries. 
+
+### Dependencies
+Ensure you have Python 3.8+ installed along with the following packages:
+```bash
+pip install numpy scipy pandas
+```
+
+---
+
+## 🚀 Execution & Command Reference
+
+The framework uses an automated, multi-threaded task runner controlled via an argument parser. All operations execute deterministic seed matching based on locked array coordinates.
+
+### 1. Generating Primary Experimental Paper Values (`E9`–`E12`)
+To run all newly proposed communication audits and diagnostic sweeps with 30 independent runs over 8 parallel process workers:
+```bash
+python noma_e9_e12.py --exp E9,E10,E11,E12 --runs 30 --workers 8
+```
+
+### 2. Executing Reproducibility Table Validations (`V1`–`V8`)
+The framework incorporates a regression audit layer that checks every cell output against the paper's original tables (**Tables II, P, Q, QP, K, KP, M, MP, A, N, S, R**), returning explicit `EXACT` or `OK` validation indicators:
+
+* **Quick Sanity Check (Table II and Table P):**
+  ```bash
+  python noma_e9_e12.py --exp V1 --workers 8
+  ```
+* **Standard Verification Sweep (All baseline tables except heavy compute matrix boundaries):**
+  ```bash
+  python noma_e9_e12.py --exp VAL --workers 8
+  ```
+* **Full Exhaustive Validation (Includes deep matrix resource bounds at Q=5×10⁴, 10⁵ and E₇ restart boundaries):**
+  ```bash
+  python noma_e9_e12.py --exp VAL --vheavy --workers 8
+  ```
+
+### 3. Comprehensive Automation & Smoke Testing
+* **Run Everything Sequential (Validations + New Experiments):**
+  ```bash
+  python noma_e9_e12.py --exp all --workers 8
+  ```
+* **Rapid Code Integration / Smoke Test (Divides computational budgets by 5 for quick parsing verification):**
+  ```bash
+  python noma_e9_e12.py --exp E9 --runs 2 --quick --workers 1
+  ```
+
+### Key Execution Flags
+* `--reuse`: Bypasses re-computation if prior execution data tables exist within the target folder.
+* `--xi <float>`: Manually changes the infrastructure-to-edge power scaling scale parameter (Defaults to `0.25`).
+* `--out <dir>`: Sets custom output directories for compiled data matrix CSV streams.
+
+---
+
+## 📁 Data Outputs & Architecture
+
+Upon completion, execution datasets are automatically compiled into a uniform structural layout under the `./results_ext/` directory:
+
+Use code with caution.
+├── results_ext/
+│   ├── E9a_summary.csv        # Baseline vs. Rayleigh multi-path propagation indices
+│   ├── E9b_gap.csv            # NOMA Capacity Decomposition metrics (OMA vs. OMA3R)
+│   ├── E10_summary.csv        # Global System-Wide Energy balancing metrics
+│   ├── E11_summary.csv        # Algorithmic Stagnation Diagnostic outputs
+│   ├── E12_test_summary.csv   # Disjointly optimized Macro-Mutation tracking metrics
+│   ├── validation.csv         # Step-by-step cross-check audit matching paper parameters
+│   └── paper_values.json      # Structured dictionary matching LaTeX file requirements
+
+---
+
+## 🔬 Core Novelty Insights
+
+This framework formally demonstrates two major physical and computational anomalies:
+1. **The Algorithmic Illusion:** The historical performance advantage attributed to GWO-GA hybrids is proven to be an artifact of un-tuned population configurations and an unconditional replacement policy in standard GWO. Applying a greedy update path (`G-GWO`) completely stabilizes the baseline, while the hybrid only achieves superiority when configured with highly exploratory macro-mutation jumps (\(\mu^* = 0.2\)).
+2. **NOMA Capacity Buffer:** Through the capacity-equalized orthogonal baseline control (OMA3R), we show that NOMA's apparent performance gains are driven by a concurrent user capacity buffer expansion rather than structural spectral efficiency, leaving it highly vulnerable to minor SIC residual power leakage (β ≥ 0.05).
+
+---
+
+
