@@ -563,5 +563,116 @@ This software is distributed under the terms of the **MIT License**. If you util
 }
 ```
 
+An updated, rigorous version of the README.md containing a dedicated Empirical Baseline Results section that outlines performance thresholds derived directly from your actual simulation logs.
+
+NOMA vs OMA Optimization Framework (GWO)
+
+A high-performance Python simulation framework designed to evaluate and optimize resource allocation in Non-Orthogonal Multiple Access (NOMA) versus Orthogonal Multiple Access (OMA) systems under Rayleigh fading channels and fog-computing configurations. The model constraints and optimizations are solved via the Grey Wolf Optimizer (GWO).
+
+📊 Overview
+
+This repository orchestrates experimental workflows to validate wireless and computational networks under complex optimization criteria:
+1. Energy & Delay Performance Sweeps (Item 22): Simulates NOMA vs OMA vs OMA3R over scaled network density settings (\(N \in \{10, 20, 30, 40, 50, 60\}\)) experiencing Rayleigh fading conditions.
+2. Referee Validation & Strategy Controls (Items 8 & 9): Benchmarks performance weights (\(\omega, w_E\)) comparing uniform computational splits (equalshare) against GWO dynamically-searched offloading spaces (searched).
+
+🔬 Empirical Baseline Results
+
+A synthesis of core system performance metrics extracted from raw empirical logs across baseline parameters:
+
+1. Multi-User Access Strategy Scaling Profile
+
+Aggregated performance trends under standard channel conditions (\(N \in \{10, 30, 60\}\)):
+
+Scale (N)	Architecture	Target Penalty Index (J)*	Total Energy (E)	Absolute Latency (L)
+N = 10	NOMA	0.4328	6.5078	203.07
+	OMA	0.4438	8.5558	172.45
+	OMA3R	0.6216	8.9662	280.21
+N = 30	NOMA	0.7203	12.5246	281.25
+	OMA	0.7822	18.5318	295.91
+	OMA3R	0.7501	13.1252	328.90
+N = 60	NOMA	0.8439	14.6655	278.22
+	OMA	0.8909	15.6973	278.45
+	OMA3R	0.8664	13.4381	294.33
+
+*Note: Minimal values of objective utility index J demonstrate superior system balance optimization.
+
+2. Strategy Architecture Control Comparison
+
+System behaviors mapped under standard validation checks (N=30, M=2, R=8):
+• Static Resource Partitions (equalshare): Returns fixed parameter constraints. Across standard runs (ω=0), objective values achieve J ≈ 0.7430, local consumption profile rests at \(E_{loc} \approx 22.798\), and total offloading splits balance evenly (off_frac ≈ 0.533).
+• Dynamic Optimizer Search (searched): Significantly adjusts offloading properties to match objective parameters. At low energy factor dependencies (\(w_E=0.25, \omega=0\)), the system balances task routing securely down to a minimized offloading fraction (off_frac ≈ 0.400) with a total latency reduction curve down to \(L_{abs} \approx 287.78\).
+
+🛠️ Project Structure
+
+text
+├── noma_e9_e12.py       # Algorithmic engine, problem constraints, and GWO implementation
+├── e9_delay_runs.py     # Network density performance sweep (NOMA vs OMA vs OMA3R)
+├── ctrl_runs.py         # Objective sweep and dynamic allocation control script
+└── README.md            # Framework documentation
+Use code with caution.
+
+🚀 Getting Started
+
+
+Prerequisites
+
+Deploy using clean mathematical stack architectures via Python 3.8+:
+bash
+pip install numpy pandas
+Use code with caution.
+
+Installation
+
+bash
+git clone https://github.com
+cd noma-gwo-optimization
+Use code with caution.
+
+🧪 Running Simulations
+
+
+1. Network Density Access Sweep (e9_delay_runs.py)
+
+Executes optimization profiles comparing access modes under randomized physical channel dynamics.
+bash
+# Execute standard multi-user evaluation sweep (10 up to 60)
+python e9_delay_runs.py
+
+# Evaluate a selective range of node constraints (e.g., 20 and 50 nodes)
+python e9_delay_runs.py 20 50
+Use code with caution.
+Outputs are saved sequentially to /home/claude/e9_delay_runs.csv.
+
+2. Algorithmic Control Checks (ctrl_runs.py)
+
+Benchmarks algorithmic consistency through static partitions against fine-tuned optimizer sweeps.
+bash
+# Execute standard parameter array validation
+python ctrl_runs.py
+Use code with caution.
+Outputs are logged sequentially to /home/claude/ctrl_results.csv.
+
+📈 Metric Definitions
+
+
+Access File Fields (e9_delay_runs.csv)
+
+• N: Operational user deployment scale.
+• scheme: Evaluated network pipeline strategy (NOMA, OMA, OMA3R).
+• J: Total computed target penalty parameter from GWO execution.
+• E / L: System-wide absolute power depletion and latency indices.
+
+Control File Fields (ctrl_results.csv)
+
+• arm: Partition allocation method (equalshare, searched).
+• wE / omega: Programmatic tuning factors adjusting latency vs depletion properties.
+• Efog_abs / Eloc_abs: Tracked fog computing tier vs localized node energy metrics.
+• off_frac: Net fraction of tasks prioritized out to external computing clusters.
+• feasible: Binary verification flag confirming boundary constraint convergence.
+To refine the results section further, let me know:
+• Would you like an automated graphing script snippet added to extract and plot the NOMA vs OMA trajectory data directly into structural visuals?
+• Are there exact mathematical formulas for objective function J that should be rendered via LaTeX inside the README metrics summary?
+
+
 
 
