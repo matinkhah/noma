@@ -285,20 +285,23 @@ are paired tests.
 
 ---
 
-## Highlights (default scenario, `Q = 10⁴`, `K = 100`, 30 runs)
 
-| Method | J | Energy (mJ) | Delay (ms) |
-|---|---|---|---|
-| RS | 0.827 | 15.2 | 286 |
-| GA | 0.813 | 15.5 | 273 |
-| GWO | 0.696 | 11.2 | 269 |
-| PSO | 0.693 | 10.9 | 274 |
-| DE | 0.744 | 12.5 | 282 |
-| WOA | 0.813 | 15.3 | 285 |
-| GWO–GA hybrid | 0.696 | 11.4 | 265 |
-| S-GWO / S-HYB | 0.692 / 0.695 | 11.1 / 11.5 | 268 / 261 |
-| Constructive | 0.890 | 16.6 | 314 |
-| All local | 1.000 | 20.3 | 334 |
+Highlights (default scenario, Q = 10⁴, K = 100, 30 runs)
+
+
+Method	J	Energy (mJ)	Delay (ms)
+RS	0.827	15.2	286
+GA	0.813	15.5	273
+GWO	0.696	11.2	269
+PSO	0.693	10.9	274
+DE	0.744	12.5	282
+WOA	0.813	15.3	285
+GWO–GA hybrid	0.696	11.4	265
+S-GWO / S-HYB	0.692 / 0.695	11.1 / 11.5	268 / 261
+Constructive	0.890	16.6	314
+All local	1.000	20.3	334
+
+
 
 Main findings (details and statistics in the manuscript):
 
@@ -433,11 +436,7 @@ This framework formally demonstrates two major physical and computational anomal
 
 # noma_open_items.py
 
-Here is a complete, production-ready README.md for your GitHub repository. It expands upon the previous architecture by incorporating the complete system-level logic of your extended codebases (noma_e9_e12.py and noma_open_items.py).
-This documentation strips out zoomorphic clichés and addresses wireless networking, resource provisioning, and continuous optimization infrastructure in a polished, publication-ready format for Computer Communications or Journal of Systems Architecture.
-markdown
-# Reproducibility Framework for Uplink NOMA Resource Allocation in Edge-Fog Networks
-
+Here is a complete, production-ready README.md for the noma_open_items.py. It expands upon the previous architecture by incorporating the complete system-level logic of your extended codebases (noma_e9_e12.py and noma_open_items.py).
 [![License: MIT](https://shields.io)](https://opensource.org)
 [![Python 3.8+](https://shields.io)](https://python.org)
 
