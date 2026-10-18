@@ -414,7 +414,6 @@ The framework incorporates a regression audit layer that checks every cell outpu
 
 Upon completion, execution datasets are automatically compiled into a uniform structural layout under the `./results_ext/` directory:
 
-Use code with caution.
 ├── results_ext/
 │   ├── E9a_summary.csv        # Baseline vs. Rayleigh multi-path propagation indices
 │   ├── E9b_gap.csv            # NOMA Capacity Decomposition metrics (OMA vs. OMA3R)
@@ -520,7 +519,6 @@ The framework uses an automated, concurrent task architecture driving isolated d
 
 Compiled results are automatically exported to explicit, structured spreadsheet frames ready for LaTeX table parsing:
 
-Use code with caution.
 ├── results_ext/               # Primary Auditing Module Outputs
 │   ├── E9a_summary.csv        # Rayleigh block fading cost summaries
 │   ├── E9b_gap.csv            # NOMA vs OMA equal-capacity buffer comparisons
@@ -578,7 +576,6 @@ python e9_delay_runs.py
 
 # Execute with custom user targets (e.g., 15 and 45 users)
 python e9_delay_runs.py 15 45
-Use code with caution.
 
 2. Referee Controls and Objective Sweeps (ctrl_runs.py)
 
@@ -591,7 +588,6 @@ python ctrl_runs.py
 
 # Execute specific variant size iteration (e.g., 50 evaluation loops)
 python ctrl_runs.py 50
-Use code with caution.
 
 📈 Output Metrics & Data Schemes
 
@@ -663,7 +659,6 @@ text
 ├── e9_delay_runs.py     # Network density performance sweep (NOMA vs OMA vs OMA3R)
 ├── ctrl_runs.py         # Objective sweep and dynamic allocation control script
 └── README.md            # Framework documentation
-Use code with caution.
 
 🚀 Getting Started
 
@@ -673,14 +668,12 @@ Prerequisites
 Deploy using clean mathematical stack architectures via Python 3.8+:
 bash
 pip install numpy pandas
-Use code with caution.
 
 Installation
 
 bash
 git clone https://github.com
 cd noma-gwo-optimization
-Use code with caution.
 
 🧪 Running Simulations
 
@@ -694,7 +687,6 @@ python e9_delay_runs.py
 
 # Evaluate a selective range of node constraints (e.g., 20 and 50 nodes)
 python e9_delay_runs.py 20 50
-Use code with caution.
 
 2. Algorithmic Control Checks (ctrl_runs.py)
 
@@ -702,7 +694,6 @@ Benchmarks algorithmic consistency through static partitions against fine-tuned 
 bash
 # Execute standard parameter array validation
 python ctrl_runs.py
-Use code with caution.
 
 📈 Metric Definitions
 
