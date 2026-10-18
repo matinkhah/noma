@@ -563,7 +563,61 @@ This software is distributed under the terms of the **MIT License**. If you util
 }
 ```
 
-An updated, rigorous version of the README.md containing a dedicated Empirical Baseline Results section that outlines performance thresholds derived directly from your actual simulation logs.
+# e9_delay_runs.py and ctrl_runs.py
+🧪 Running Experiments
+
+
+1. Energy and Delay Comparison Sweep (e9_delay_runs.py)
+
+This script evaluates total cost, absolute energy Consumption, and latency penalties across NOMA, OMA, and OMA3R schemes under Rayleigh fading scenarios. It iterates across user counts (N).
+• Default User Sweeps: 10, 20, 30, 40, 50, 60
+• Runs per Configuration: 30 random fading iterations
+bash
+# Execute with default user sweeps (10 to 60)
+python e9_delay_runs.py
+
+# Execute with custom user targets (e.g., 15 and 45 users)
+python e9_delay_runs.py 15 45
+Use code with caution.
+
+2. Referee Controls and Objective Sweeps (ctrl_runs.py)
+
+This script validates optimizer accuracy against baseline architectures using specific N=30 simulation configurations. It isolates equal fog resource-sharing methods against optimized distributions alongside structural weight parameters.
+• Evaluated Arms: equalshare (fixed equal fog division) vs searched (dynamically optimized via GWO)
+• Default Iterations: 30 evaluations per layout
+bash
+# Execute standard control suite (30 iterations)
+python ctrl_runs.py
+
+# Execute specific variant size iteration (e.g., 50 evaluation loops)
+python ctrl_runs.py 50
+Use code with caution.
+
+📈 Output Metrics & Data Schemes
+
+Both execution runners append metrics directly to local CSV logs.
+
+Delay Experiment Fields (e9_delay_runs.csv)
+
+• N: User count configured in the system.
+• scheme: Communication network schema (NOMA, OMA, OMA3R).
+• run: Active experiment seed/iteration index.
+• J: Total objective function cost penalty achieved by GWO.
+• E: Absolute total energy consumption profile.
+• L: Total absolute system latency timeline metrics.
+
+Control Experiment Fields (ctrl_results.csv)
+
+• arm: Validation mode identifier (equalshare, searched).
+• wE / omega: Structural objective penalty balancing parameters.
+• run: Simulation runtime repetition marker.
+• J / E_abs / L_abs: Overall algorithmic performance output parameters.
+• Efog_abs / Eloc_abs: Fog network vs localized power depletion distributions.
+• off_frac: Proportion of processes offloaded outside localized devices.
+• feasible: Boolean indicator confirming system parameter boundary constraint validation.
+
+
+---
 
 NOMA vs OMA Optimization Framework (GWO)
 
@@ -641,7 +695,6 @@ python e9_delay_runs.py
 # Evaluate a selective range of node constraints (e.g., 20 and 50 nodes)
 python e9_delay_runs.py 20 50
 Use code with caution.
-Outputs are saved sequentially to /home/claude/e9_delay_runs.csv.
 
 2. Algorithmic Control Checks (ctrl_runs.py)
 
@@ -650,7 +703,6 @@ bash
 # Execute standard parameter array validation
 python ctrl_runs.py
 Use code with caution.
-Outputs are logged sequentially to /home/claude/ctrl_results.csv.
 
 📈 Metric Definitions
 
@@ -669,9 +721,6 @@ Control File Fields (ctrl_results.csv)
 • Efog_abs / Eloc_abs: Tracked fog computing tier vs localized node energy metrics.
 • off_frac: Net fraction of tasks prioritized out to external computing clusters.
 • feasible: Binary verification flag confirming boundary constraint convergence.
-To refine the results section further, let me know:
-• Would you like an automated graphing script snippet added to extract and plot the NOMA vs OMA trajectory data directly into structural visuals?
-• Are there exact mathematical formulas for objective function J that should be rendered via LaTeX inside the README metrics summary?
 
 
 
