@@ -431,4 +431,138 @@ This framework formally demonstrates two major physical and computational anomal
 
 ---
 
+# noma_open_items.py
+
+Here is a complete, production-ready README.md for your GitHub repository. It expands upon the previous architecture by incorporating the complete system-level logic of your extended codebases (noma_e9_e12.py and noma_open_items.py).
+This documentation strips out zoomorphic clichés and addresses wireless networking, resource provisioning, and continuous optimization infrastructure in a polished, publication-ready format for Computer Communications or Journal of Systems Architecture.
+markdown
+# Reproducibility Framework for Uplink NOMA Resource Allocation in Edge-Fog Networks
+
+[![License: MIT](https://shields.io)](https://opensource.org)
+[![Python 3.8+](https://shields.io)](https://python.org)
+
+This repository contains the complete reference implementation, empirical extensions, and replication protocols for a series of budget- and capacity-controlled audits targeting resource scheduling in uplink NOMA edge-fog computing environments.
+
+Rather than proposing incremental heuristic adjustments, this repository provides a rigorous software system to track allocation costs against strict runtime computation budgets (Q). It decouples physical multi-access gains from user-capacity buffers, diagnoses runtime stagnation in population-based search loops, and isolates systemic cost disconnects between edge energy profiles and infrastructure scales.
+
+---
+
+## 📡 System Architecture & Computational Extensions
+
+The simulation engine models a single-cell uplink multi-user pipeline coupling discrete server assignment, sub-channel block grouping, continuous transmission power levels, and continuous fog node processing shares. The framework contains three distinct modules:
+
+### 1. Architectural Baseline (`noma_e9_e12.py`)
+* **Rayleigh Block Fading ([E9]):** Evaluates scheduler trajectories under quasi-static block fading with perfect channel state information (CSI) per realization.
+* **System-Wide Cost Disconnect ([E10]):** Re-allocates resources under global accounting (\(J_{\mathrm{sys}}\)) incorporating fog processing constants (ξ), server capacitance constants (\(\kappa_{\mathrm{f}}\)), and dedicated downlink result-return delay overheads (ε).
+* **Stagnation Diagnostics ([E11]):** Unmasks structural decay anomalies by evaluating standard Grey Wolf Optimizer (GWO) pipelines against budget-decoupled parameter schedules (`F-GWO`) and conditional greedy updates (`G-GWO`).
+* **Exploratory Step Sizing ([E12]):** Tracks optimization limits by exploring continuous coordinate mutation scales up to a macro threshold (\(\mu^* = 0.2\)) via disjoint instance sets.
+
+### 2. Multi-Candidate Reruns & Open Network Items (`noma_open_items.py`)
+* **Greedy Optimizer Sweeps (`GREEDY`):** Reruns and validates budget sweeps ([E2]), high-dimensional scalability ([E5]), matrix sizing ([E6]), restart bounds ([E7]), and node density scales ([E8]) leveraging the greedy state replacement baseline.
+* **Tuned Multi-Candidate Tracking ([E13]):** Cross-checks the optimized macro-mutation hybrid scheduler against Particle Swarm Optimization (`PSO`) and `G-GWO` configured at their respective empirically selected population profiles (\(K^*\)).
+* **Constructive Power Search Heuristics ([E14]):** Evaluates a granular parameter deconstruction of channel-ordered constructive heuristics (`CONS`), swapping fixed power policies for dynamic admission grid searches and continuous coordinate local refinement loops on the true objective function.
+* **Imperfect SIC Boundary Fragility ([E15]):** Charts break-even boundary conditions where residual inter-user power leaks (β) from imperfect successive interference cancellation completely neutralize non-orthogonal multi-user processing gains across Rayleigh propagation channels.
+* **Continuous Partial Offloading ([E16]):** Transitions from a binary scheduling model to a continuous partial allocation paradigm where a fraction \(\phi_i \in [0,1]\) of a node's dataset is computed locally in parallel with remote edge migration under high infrastructure power scales (ξ ≥ 0.5).
+
+---
+
+## 🛠️ Software Prerequisites
+
+The computational suite is written in pure Python and requires no external proprietary solvers or convex libraries. 
+
+### Dependencies
+```bash
+pip install numpy scipy pandas
+```
+
+---
+
+## 🚀 Execution & Command Reference
+
+The framework uses an automated, concurrent task architecture driving isolated deterministic instance seeds.
+
+### Module A: Rayleigh Propagation & System Overhead Audits (`noma_e9_e12.py`)
+* **Compile All Extended Data Metrics:**
+  ```bash
+  python noma_e9_e12.py --exp E9,E10,E11,E12 --runs 30 --workers 8
+  ```
+* **Verify Baseline Replication Integrity (Cross-checks outputs against original reference tables):**
+  ```bash
+  python noma_e9_e12.py --exp VAL --vheavy --workers 8
+  ```
+
+### Module B: Greedy Overhauls & Physical Link Fragility Audits (`noma_open_items.py`)
+* **Execute All Conditional Greedy Reruns (`E2`, `E5`, `E6`, `E7`, `E8`):**
+  ```bash
+  python noma_open_items.py --exp GREEDY --runs 30 --workers 8
+  ```
+* **Execute All Advanced Open Networking Audits (`E13`, `E14`, `E15`, `E16`):**
+  ```bash
+  python noma_open_items.py --exp OPEN --runs 30 --workers 8
+  ```
+* **Comprehensive Automated Sequential Execution Suite:**
+  ```bash
+  python noma_open_items.py --exp all --runs 30 --workers 8
+  ```
+* **Rapid Integration Smoke Test (Divides budgets for smoke testing local parsing):**
+  ```bash
+  python noma_open_items.py --exp all --runs 2 --quick --restarts 2 --refQ 2000 --workers 1
+  ```
+
+### Key Parameter Flags
+* `--reuse`: Bypasses re-computation steps if compiled CSV data structures match within the target directory.
+* `--out <string>`: Directs output folder definitions (Defaults to `./results_ext/` or `./results_open/`).
+* `--betas <string>`: Sets custom residual interference list configurations for SIC leakage loops (e.g., `0,0.05,0.1,0.2,0.5`).
+* `--xis <string>`: Configures server power scale arrays to chart infrastructure energy inflation.
+
+---
+
+## 📁 Data Outputs & File Tree
+
+Compiled results are automatically exported to explicit, structured spreadsheet frames ready for LaTeX table parsing:
+
+Use code with caution.
+├── results_ext/               # Primary Auditing Module Outputs
+│   ├── E9a_summary.csv        # Rayleigh block fading cost summaries
+│   ├── E9b_gap.csv            # NOMA vs OMA equal-capacity buffer comparisons
+│   ├── E10_summary.csv        # Global System-Wide Energy balancing metrics
+│   └── validation.csv         # Re-run structural replication telemetry
+│
+├── results_open/              # Advanced Open Item Module Outputs
+│   ├── E2_summary.csv         # Greedy-selection budget convergence timelines
+│   ├── E5_summary.csv         # High-dimension feasibility and local floor bounds
+│   ├── E6_bestK.csv           # Optimal population mappings per candidate update track
+│   ├── E14_summary.csv        # Constructive grid-power search & refinement logs
+│   ├── E15_break_even.csv     # Calculated β breakdown thresholds vs OMA
+│   └── E16_summary.csv        # Continuous partial offloading fractional matrices (mean_phi)
+
+---
+
+## 🔬 Core Engineering Insights Discovered
+
+This framework provides specific, citable threshold parameters for next-generation edge deployment architectures:
+1. **The Algorithmic Illusion:** Standard metaheuristic degradation at high budgets is exogenous to the hybrid architecture. It is caused by GWO's unconditional update policy. Enforcing a conditional greedy filter (`G-GWO`) completely mitigates this decay. Hybrids only achieve optimization dominance when configured as a highly exploratory macro-mutation optimizer (\(\mu^* = 0.2\)).
+2. **Spectral vs Capacity Buffer:** By evaluating standard scheduling against our capacity-equalized orthogonal baseline control (OMA3R), we show NOMA's apparent benefit reduces exclusively to delay mitigation rather than device power reduction, and it is highly fragile, failing completely at a minor 5% residual signal cancellation power leak (β ≥ 0.05).
+3. **Partial Offloading Scale Reversal:** Splitting computational tasks continuously (\(\phi_i\)) provides strong structural advantages in green networking environments. However, once server scaling overheads exceed a threshold boundary (ξ ≥ 0.5), any localized device energy minimization is wiped out by massive infrastructure power inflation.
+
+---
+
+## 📜 License & Citations
+
+This software is distributed under the terms of the **MIT License**. If you utilize this simulation framework, auditing protocols, or data tables in your academic work, please cite the corresponding journal publication:
+
+```bibtex
+@article{matinkhah2026computation,
+  author={Matinkhah, S. Mojtaba},
+  title={Computation Budget, Access Capacity and Fog Energy in Uplink NOMA Offloading: A Controlled Evaluation of Allocation Algorithms},
+  journal={Computer Communications},
+  issn={0140-3664},
+  year={2026},
+  volume={184},
+  pages={1--22},
+  doi={...}
+}
+```
+
+
 
