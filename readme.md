@@ -713,6 +713,73 @@ Control File Fields (ctrl_results.csv)
 • off_frac: Net fraction of tasks prioritized out to external computing clusters.
 • feasible: Binary verification flag confirming boundary constraint convergence.
 
+# Sample output
+```bash
+!python noma_open_items.py --exp E7 --runs 30 --workers 2
+selftest ok: partial model reduces to the binary model; cons2 reproduces the constructive rule
+[E7] 1800 jobs, workers=2
+[E7] 90/1800  1533s
+[E7] 180/1800  2777s
+[E7] 270/1800  4299s
+[E7] 360/1800  5538s
+[E7] 450/1800  7063s
+[E7] 540/1800  8304s
+[E7] 630/1800  9831s
+[E7] 720/1800  11083s
+[E7] 810/1800  12614s
+[E7] 900/1800  13864s
+[E7] 990/1800  15397s
+[E7] 1080/1800  16654s
+[E7] 1170/1800  18190s
+[E7] 1260/1800  19490s
+[E7] 1350/1800  21106s
+[E7] 1440/1800  22424s
+[E7] 1530/1800  24036s
+[E7] 1620/1800  25350s
+[E7] 1710/1800  26963s
+[E7] 1800/1800  28277s
+
+=== E7 gap to best-known (reference restarts: S-G-GWO; J_bk is an upper bound on the optimum) ===
+ N     alg      J   J_bk  gap_pct  gap_sd
+ 8    CONS 0.4987 0.3034    63.43   19.57
+ 8      DE 0.3405 0.3034    12.13   4.858
+ 8   G-GWO 0.3237 0.3034    6.634   7.723
+ 8      GA 0.4362 0.3034     43.9   10.52
+ 8     GWO 0.3304 0.3034    8.758   9.984
+ 8     HYB 0.3299 0.3034    8.505   10.61
+ 8     PSO 0.3284 0.3034    8.048     9.3
+ 8      RS 0.4488 0.3034    48.04   7.791
+ 8 S-G-GWO   0.32 0.3034    5.291   7.447
+ 8   S-GWO 0.3387 0.3034    11.47   10.72
+10    CONS 0.5869  0.382    53.71   10.48
+10      DE 0.4246  0.382    11.11   3.565
+10   G-GWO 0.4005  0.382     4.78   5.062
+10      GA 0.5047  0.382    32.26   7.229
+10     GWO 0.4088  0.382    7.027   6.382
+10     HYB 0.4087  0.382    6.941   6.406
+10     PSO 0.4086  0.382    7.007   6.223
+10      RS 0.5314  0.382    39.29   4.803
+10 S-G-GWO 0.3981  0.382    4.153   4.933
+10   S-GWO 0.4051  0.382    5.936   4.954
+30    CONS 0.8839 0.6487    36.34   3.384
+30      DE 0.7411 0.6487    14.28   3.015
+30   G-GWO 0.6802 0.6487    4.884   2.302
+30      GA 0.8105 0.6487    24.96    4.59
+30     GWO  0.693 0.6487    6.873   3.006
+30     HYB 0.6868 0.6487    5.896   2.244
+30     PSO 0.7001 0.6487    7.967   2.874
+30      RS 0.8281 0.6487    27.69   2.834
+30 S-G-GWO 0.6959 0.6487    7.321   2.709
+30   S-GWO 0.6932 0.6487    6.896     2.7
+
+=== E7 quality of the reference restarts (J_ref_<alg> = mean over instances of the best restart of that type) ===
+ N  refalg  J_restart_mean  J_restart_sd  J_ref_S-G-GWO   J_bk
+ 8 S-G-GWO          0.3158       0.03515         0.3034 0.3034
+10 S-G-GWO          0.3968        0.0293         0.3821  0.382
+30 S-G-GWO           0.674       0.02185          0.649 0.6487
+[E7] done in 28278s
+```
+
 
 
 
