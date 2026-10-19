@@ -329,7 +329,7 @@ See the *Limitations* section of the manuscript.
 [![License: MIT](https://shields.io)](https://opensource.org)
 [![Python 3.8+](https://shields.io)](https://python.org)
 
-This repository contains the complete, self-contained reference implementation and reproducibility validation suite for **"Deconstructing the Claims of Hybrid Metaheuristics in NOMA Fog Offloading: A Budget- and Capacity-Controlled Methodological Audit"** (submitted to *IEEE Access*).
+This repository contains the complete, self-contained reference implementation and reproducibility validation suite for **"Uplink NOMA offloading to fog nodes: capacity, residual interference and fog-side energy measured with a heuristic search"** (submitted to *Computer Communication*).
 
 Rather than presenting an unconstrained "algorithm tweak," this framework introduces a rigorous, budget- and capacity-controlled benchmark environment. It maps the operational boundaries of heuristic schedulers against strict computing budgets (Q), isolates baseline algorithmic plateaus, and decouples physical multi-access gains from raw channel capacity expansion.
 
@@ -551,7 +551,7 @@ This software is distributed under the terms of the **MIT License**. If you util
 ```bibtex
 @article{matinkhah2026computation,
   author={Matinkhah, S. Mojtaba},
-  title={Computation Budget, Access Capacity and Fog Energy in Uplink NOMA Offloading: A Controlled Evaluation of Allocation Algorithms},
+  title={Uplink NOMA offloading to fog nodes: capacity, residual interference and fog-side energy measured with a heuristic search},
   journal={Computer Communications},
   issn={0140-3664},
   year={2026},
